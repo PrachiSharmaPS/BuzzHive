@@ -53,9 +53,9 @@ app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 
 /* MONGOOSE SETUP */
-const PORT = process.env.PORT || 6001;
+const PORT =  3001;
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect("mongodb+srv://Avverma:Avverma95766@avverma.2g4orpk.mongodb.net/SocialMedia", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
