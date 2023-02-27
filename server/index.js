@@ -7,16 +7,15 @@ const multer =require( "multer")
 const helmet =require( "helmet")
 const morgan =require( "morgan")
 const path =require( "path")
-const { fileURLToPath } =require( "url")
-const authRoutes =require( "./routes/auth.js")
-const userRoutes =require( "./routes/users.js")
-const postRoutes =require( "./routes/posts.js")
+// const { fileURLToPath } =require( "url")
+const route=require( "./routes/route")
+
 const { register } =require( "./controllers/auth.js")
 const { createPost } =require( "./controllers/posts.js")
 const { verifyToken } =require( "./middleware/auth.js")
-const User =require( "./models/User.js")
-const Post =require( "./models/Post.js")
-const { users, posts } =require( "./data/index.js")
+// const User =require( "./models/User.js")
+// const Post =require( "./models/Post.js")
+// const { users, posts } =require( "./data/index.js")
 
 /* CONFIGURATIONS */
 const filesname = path.resolve(process.argv[1]);
@@ -48,9 +47,8 @@ app.post("/auth/register", upload.single("picture"), register);
 app.post("/posts", verifyToken, upload.single("picture"), createPost);
 
 /* ROUTES */
-app.use("/auth", authRoutes);
-app.use("/users", userRoutes);
-app.use("/posts", postRoutes);
+app.use("/", route);
+
 
 /* MONGOOSE SETUP */
 const PORT =  3001;
