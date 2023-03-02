@@ -3,6 +3,29 @@
 BuzzHive is a social media app built with the MERN (MongoDB, Express, React, Node.js) stack. 
 It allows users to create profiles, make posts, like and comment on posts, and connect with other users.
 
+
+### Models
+- User Model
+```
+{
+    firstName: {string, mandatory}, lastName: {string, mandatory},   email:  {string, mandatory, valid email, unique}, password: {string, mandatory}, picturePath: { String, default: ""},
+    friends: { Array,default: [] },
+    location: { String}, occupation: {String}, viewedProfile: {Number},
+    impressions: {Number}, createdAt: {timestamp},  updatedAt: {timestamp}
+},
+```
+### Post 
+Post Model
+```
+
+{
+    userId: { String,required}, firstName: {String,required},
+    lastName:  {String,required},  location: {String},
+    description: {String},  picturePath: {String},
+    userPicturePath: {String}, likes: { Map}, comments: { Array },
+  },
+```
+
 ## Register
 To use the app, users need to register for an account by providing their name, email, and password.
 
