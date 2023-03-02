@@ -21,12 +21,12 @@ Post Model
   },
 ```
 
-## Register
+### POST /register
 To use the app, users need to register for an account by providing their name, email, and password.
-
+`Endpoint: BASE_URL/register`
 ## Login
-Once registered, users can log in to the app using their email and password.
-
+Once registered, users can log in to the app using their email and password. 
+`Endpoint: BASE_URL/auth/login`
 ## Profile
 Users can create a profile by providing their personal information, such as their name, bio, and profile picture.
 
@@ -36,39 +36,26 @@ Users can create posts by writing a message and uploading a picture. They can al
 ## Friends
 Users can send friend requests to other users and accept or decline friend requests sent to them. Once friends, they can see each other's posts and interact with them.
 
-### Models
-- User Model
+## Testing 
+- To test these apis create a new collection in Postman named SocialMedia 
+- Each api should have a new request in this collection
+- Each request in the collection should be rightly named. Eg Register, Post ,login etc
+
+## Response
+
+### Successful Response structure
 ```yaml
 {
-    firstName: {string, mandatory},
-    lastName: {string, mandatory},
-    email:  {string, mandatory, valid email, unique},
-    password: {string, mandatory},
-    picturePath: { String, default: ""},
-    friends: { Array,default: [] },
-    location: { String},
-    occupation: {String},
-    viewedProfile: {Number},
-    impressions: {Number},
-  
+  status: true,
+  data: {
 
-  createdAt: {timestamp},
-  updatedAt: {timestamp}
-},
+  }
+}
 ```
-### Post 
-Post Model
+### Error Response structure
 ```yaml
-
 {
-    userId: { String,required},
-    firstName: {String,required},
-    lastName:  {String,required},
-    location: {String},
-    description: {String},
-    picturePath: {String},
-    userPicturePath: {String},
-    likes: { Map},
-    comments: { Array },
-  },
+  status: false,
+  message: ""
+}
 ```
